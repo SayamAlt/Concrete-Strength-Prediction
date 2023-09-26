@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concrete Strength Prediction</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<style>
+        body {
+            text-align: center;
+        }
+        .navbar {
+            background-color: lightcyan;
+        }
+
+        .card-title {
+            color: darkslategray;
+            font-weight: bold;
+            font-size: 2rem;
+            font-family: Arial, Helvetica, sans-serif;
+            font-style: inherit;
+        }
+        
+        a {
+            color: #f1f9f9;
+        }
+        
+        a:hover {
+            color: #f0f0f0;
+          }
+          
+        .predict-dec{
+            color: blueviolet;
+            font-weight: bold;
+            font-size: 2rem;
+            font-family: 'Times New Roman', Times, serif;
+            font-stretch: ultra-expanded;
+        }
+
+        h1 {
+            color: crimson;
+            font-size: 4 rem;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        hr {
+            border: 1px solid green;
+            border-width: 5rem solid green;
+        }
+
+        p {
+            color: maroon;
+            font-size: 1.5rem;
+            font-weight: bold;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-style: normal;
+            font-display: flex;
+            font-kerning: auto;
+            font-stretch: semi-expanded;
+        }
+
+        p:hover {
+            color: darkcyan;
+            font-weight: bold;
+            font-style: italic;
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            filter: brightness(100%) saturate(100%);
+            font-size: 2rem;
+        }
+</style>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+            <h1>Concrete Strength Prediction</h1>
+        </nav>
+        
+        <hr /><br><br><br>
+        <div class="container">
+            <form action="/predict" method="post">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Age:</h5>
+                                <input type="number" min="1.0" max="129.5" name="age" id="age" required="required">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Superplasticizer:</h5>
+                                <input type="number" min="0.0" max="25.0" name="superplasticizer" id="superplasticizer" required="required">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Water:</h5>
+                                <input type="number" min="127.14" max="232.35" name="water" id="water" required="required">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Coarse Aggregate:</h5>
+                                <input type="number" min="801.0" max="1145.0" name="coarse_aggregate" id="coarse_aggregate" required="required">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Blast Furnace Slag:</h5>
+                                <input type="number" min="0.0" max="356.25" name="blast_furnace_slag" id="blast_furnace_slag" required="required">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Cement:</h5>
+                                <input type="number" min="102.0" max="540.0" name="cement" id="cement" required="required">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br><br>
+                <!-- Submit -->
+                <input type="submit" value="Submit" class="btn btn-primary">
+            </form>
+            <br><br>
+            <h3 class="predict-dec">{{ prediction_text }}</h3> 
+            <br>
+            <p>Copyrights Sayam Kumar 2023</p>  
+        </div>
+    
+        <!-- JavaScript -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+    </nav>
+</body>
+</html>
